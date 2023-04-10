@@ -3,4 +3,4 @@ from django.http import HttpResponse
 
 def tca(request):
 
-    return HttpResponse("Estou em TCA")
+    return render(request, 'tca.html')
