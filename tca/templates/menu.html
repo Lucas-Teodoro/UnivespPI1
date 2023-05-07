@@ -1,0 +1,23 @@
+{% extends "base.html "%}
+{% load static %}
+
+{% block 'head' %}
+    <link rel="stylesheet" href="{% static 'tca/css/tca.css'%}">
+{% endblock %}
+
+{% block 'dashboard' %}
+    <div class="container">
+        <div class="row">
+            <br>
+            <h1>Termo de Compromisso Ambiental - TAC</h1>
+        </div>
+        <div>
+            <span type="submit" class="links_name">Incluir nova TCA
+        </div>
+        <div>
+            <span type="submit" class="links_name">Listar TCAs
+        </div>
+        <hr style="background-color:gray;">
+    </div>
+    <script src="{% static 'tca/js/tca.js' %}"></script>
+{% endblock %}
