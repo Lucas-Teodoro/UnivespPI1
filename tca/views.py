@@ -2,9 +2,12 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import TCA, AC
 
-def tca(request):
+def menutca(request):
+    return render(request, 'menu.html')
+
+def cadastrartca(request):
     if request.method == "GET":
-        return render(request, 'tca.html')
+        return render(request, 'formTca.html')
     
     elif request.method == "POST":
 
@@ -17,7 +20,7 @@ def tca(request):
         newTCA = TCA.objects.filter(cpfcnpj=cpfcnpj)
 
         if newTCA.exists(): #retorno se cpfcnpj ja existe
-            return render(request, 'tca.html', {'tcaNum':tcaNum, 'razaoSocial':razaoSocial, 'endereco':endereco, 'email':email })
+            return render(request, 'formtca.html', {'tcaNum':tcaNum, 'razaoSocial':razaoSocial, 'endereco':endereco, 'email':email })
 
         newTCA = TCA(
             tcaNum = tcaNum,
@@ -29,4 +32,9 @@ def tca(request):
 
         newTCA.save()
 
-        return render(request, 'tca.html')
+        return render(request, 'formtca.html')
+
+def listartca(request):
+    if request.method == "GET":
+        tcas = TCA.objects.all()
+        return render(request, 'listartca.html', {'tcas': tcas})

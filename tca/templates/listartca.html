@@ -1,0 +1,36 @@
+{% extends "base.html "%}
+{% load static %}
+
+{% block 'head' %}
+    <link rel="stylesheet" href="{% static 'tca/css/tca.css'%}">
+{% endblock %}
+
+{% block 'dashboard' %}
+    <h1> Listar TCAS </h1>
+
+    <div>
+        <thead>
+            <tr>
+              <th>Número TCA</th>
+              <th>Razão Social</th>
+              <th>CPF/CNPJ</th>
+              <th>Endereço</th>
+              <th>Email</th>
+              <th>Imprimir</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for tca in tcas %}
+                <tr>
+                    <td>{{tca.tcaNUM}}</td>
+                    <td>{{tca.razaoSocial}}</td>
+                    <td>{{tca.cpfcnpj}}</td>
+                    <td>{{tca.endereco}}</td>
+                    <td>{{tca.email}}</td>
+                    <td>X</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </div>
+
+{% endblock %}
